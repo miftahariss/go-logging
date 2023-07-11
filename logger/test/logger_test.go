@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/miftahariss/go-logging/logger"
 	"gitlab.klik.doctor/platform/go-pkg/dapr/daprhttp"
-	"gitlab.klik.doctor/platform/go-pkg/dapr/logger"
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 	"go.opentelemetry.io/otel/trace"
 )
