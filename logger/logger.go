@@ -14,6 +14,7 @@ import (
 )
 
 const (
+	ApiInfoLevel = "api-info"
 	// InfoLevel is the default logging priority.
 	InfoLevel = "info"
 
@@ -44,6 +45,7 @@ type ErrorFormat struct {
 }
 
 type Logger interface {
+	ApiInfo(msg string)
 	Info(msg string)
 	Warn(msg string)
 	Error(err error)
@@ -79,6 +81,10 @@ func (l *logger) WithContext(ctx context.Context) Logger {
 	lg := *l
 	lg.Context = ctx
 	return &lg
+}
+
+func (l *logger) ApiInfo(msg string) {
+	l.Writer.Printf(l.Log(msg, InfoLevel))
 }
 
 func (l *logger) Info(msg string) {
